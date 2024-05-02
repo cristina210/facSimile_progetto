@@ -1,0 +1,31 @@
+@startuml
+package GeometryLibrary <<Folder>>
+{
+
+
+Class Triangle  
+{
++ Vertices : Matrix3d
++ Triangle(Vertices)     
++ double computeArea()    
+}
+Class Polygons
+{
++ Vertices : MatrixXd    ‘matrice con vertici
++ listPolygons : vector<vector<unsigned in>>
++ vector<vector<vector<unsigned int >> computeTriagulation()     
++ vector<double> computeArea()
++ void gedimInterface(vector<vector<unsigned int >> &)   
+.. Non member function ..
+‘per metodi non inerenti alla classe:
+void importPolygons(path,polygons)    
+.. TEST POLYGONS ..
+TESTCOMPUTEAREA
+TESTTRIAGULATION
+}
+}
+Note “Gedim is an external library” as GedimN
+GedimN .. Gedim
+Gedim ..> Polygons :: gedimInterface 
+Triangle “many”..o “1” Polygons
+@enduml
